@@ -18,16 +18,27 @@ app. get('/', (req, res) => {
 });
 
 
+
 // route ke random.ejs
 app.get('/rand',(req, res) => {
     const num =  Math.floor(Math.random() * 10) + 1;
     res.render('random', {num});
 });
 
+
+// route ke path untuk tag , mirip tag di situs dev.to
+app.get  ('/t/:tag', (req, res) => {
+    const {tag} = req.params;
+    res.render('tag', {tag});
+});
+
 // mengecek listen service file index.js kita sudah berjalan/belu, 
 app.listen(8080, () => {
     console.log('Listening on host http://localhost:8080');
 });
+
+
+
 
 
 
