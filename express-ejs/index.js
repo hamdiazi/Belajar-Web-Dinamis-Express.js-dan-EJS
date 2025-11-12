@@ -1,6 +1,9 @@
 const express = require ('express');
 const app = express() ;
 
+// import data.json
+const tagsData = require('./data.json');
+
 // mengatur posision path
 const path = require('path');
 
@@ -35,9 +38,16 @@ app.get('/rand',(req, res) => {
 
 // route ke path untuk tag , mirip tag di situs dev.to
 app.get  ('/t/:tag', (req, res) => {
+    // console.log(tagsData);
     const {tag} = req.params;
-    res.render('tag', {tag});
+    const data = tagsData[tag];
+    if (data){ 
+    res.render('tag', {data});
+    } else {
+    res.render('notfound', {tag});
+    }
 });
+
 
 
 
