@@ -7,5 +7,20 @@
 </head>
 <body>
     <h1>Random Number : <%= num %></h1>
+    <%  if (num % 2 === 0) {  %>
+        <h3>Angka Genap</h3>
+    <%  } else {  %>
+        <h3>Angka Ganjil</h3>       
+    <% } %> 
+
+    <!-- ternary if-->
+        <h3> That number is : <%= num%2 === 0 ? 'even' : 'odd'  %></h3>
+    
 </body>
 </html>
+
+<!-- if (num % 2 === 0) {
+    huruf Genap
+} else {
+    huruf Ganjil
+} -->

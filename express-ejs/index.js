@@ -12,11 +12,18 @@ app.set ('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 // contoh hasilnya nanti : /learn-express/express-ejs/views
 
+
 // route ke file home.ejs dengan method .get
 app. get('/', (req, res) => {
     res.render('home');
 });
 
+
+// route ke halaman cats.ejs dan passing data array cats
+app.get ('/cats', (req, res) => {
+    const cats = ['embul', 'floki', 'mio', 'timot'];
+    res.render ('cats', {cats});
+});
 
 
 // route ke random.ejs
@@ -32,10 +39,15 @@ app.get  ('/t/:tag', (req, res) => {
     res.render('tag', {tag});
 });
 
+
+
+
+
 // mengecek listen service file index.js kita sudah berjalan/belu, 
 app.listen(8080, () => {
     console.log('Listening on host http://localhost:8080');
 });
+
 
 
 
