@@ -15,6 +15,10 @@ app.set ('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 // contoh hasilnya nanti : /learn-express/express-ejs/views
 
+// memanggil untuk folder static untuk kebutuhan assets
+app.use(express.static(path.join(__dirname, '/public')));
+
+
 
 // route ke file home.ejs dengan method .get
 app. get('/', (req, res) => {
